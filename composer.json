@@ -1,0 +1,31 @@
+{
+    "name": "mriembau/laravel-hasowner",
+    "description": "Add user owned behavior to eloquent models",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "laravel"
+    ],
+    "authors": [
+        {
+            "name": "Marc Riembau",
+            "email": "mriembau89@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mriembau\\LaravelHasOwner\\": "./src"
+        }
+    },
+    "require": {
+        "illuminate/support": "^7.0|^8.0|^9.0",
+        "illuminate/database": "^7.0|^8.0|^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mriembau\\LaravelHasOwner\\LaravelHasOwnerServiceProvider"
+            ]
+        }
+    }
+}
