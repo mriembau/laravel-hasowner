@@ -21,7 +21,6 @@ This package can be installed through Composer.
 
 `composer require mriembau/laravel-hasowner`
 
------
 
 ## Configuration
 
@@ -42,7 +41,24 @@ return [
 
 ```
 
------
+## Usage
+To add the owned by user behavior to any of your models, you just have to add the *HasOwner* trait to it.
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Mriembau\LaravelHasOwner\Traits\HasOwner;
+
+class MyModel extends Model
+{
+    use HasOwner;
+}
+
+```
+
+With this, any query to *MyModel* will only return elements where *user_id* is the id of the currently authenticated user.
 
 ## Change column names for a single model
 
@@ -67,26 +83,35 @@ class Payment extends Model
 
 ```
 
------
-## Usage
-To add the owned by user behavior to any of your models, you just have to add the *HasOwner* trait to it.
+## Saving model
+
+When saving a model, if the foreign key referencing to users table is not set, it will be setted to the current user by default.
+
 ```php
 <?php
 
-namespace App\Models;
+// Auth::user()->id == 1
 
-use Illuminate\Database\Eloquent\Model;
-use Mriembau\LaravelHasOwner\Traits\HasOwner;
+$dummy = Dummy::create([
+    'name' => 'Dummy'
+]);
 
-class MyModel extends Model
-{
-    use HasOwner;
-}
-
+// $dummy->user_id == 1
 ```
 
-With this, any query to *MyModel* will only return elements where *user_id* is the id of the currently authenticated user.
+If you need to save the model with for a diferent user, you can do it by setting a value for the foreign key:
+```php
+<?php
 
+// Auth::user()->id == 1
+
+$dummy = Dummy::create([
+    'name' => 'Dummy',
+    'user_id' => 2
+]);
+
+// $dummy->user_id == 2
+```
 
 ## TO-DOs
 
