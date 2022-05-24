@@ -1,13 +1,24 @@
 # Laravel Has Owner
-***
-Laravel package to allow you to add the "owned by user" behavior to a model. It will keep all queries to that model filter
-results by user, instead of having to do it manually every time.
+
+[![Latest Version](https://img.shields.io/github/v/release/mriembau/laravel-hasowner.svg?style=flat-square)](https://github.com/mriembau/laravel-hasowner/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/mriembau/laravel-hasowner.svg?style=flat-square)](https://packagist.org/packages/mriembau/laravel-hasowner)
+
+This package provides a trait that adds user owned behaviour to an Eloquent model.
+
+By default, any query to the Eloquent model using this trait will only return results where *user_id* is the currently logged in user.
+
+## Support us
+You can help us by sending any feedback about our packages to make us know how our open source packages can be improved.
+
+And if you want, you can also buy us a coffe, which will make easier to keep working on this :)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mriembau89)
 
-![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)
 
 ## Install
+This package can be installed through Composer.
+
 `composer require mriembau/laravel-hasowner`
 
 -----
@@ -87,7 +98,11 @@ social network where a user allow his friends to see his posts).
 
 ## Changelog
 
-### 1.0
+#### 1.0.1
+- Tests added
+- Improved README
+
+### 1.0.0
 - First version
 
 ## Credits
