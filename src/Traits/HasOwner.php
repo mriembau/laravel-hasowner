@@ -2,6 +2,7 @@
 
 namespace Mriembau\LaravelHasOwner\Traits;
 
+use Mriembau\LaravelHasOwner\Observers\HasOwnerObserver;
 use Mriembau\LaravelHasOwner\Scopes\HasOwnerScope;
 
 trait HasOwner {
@@ -13,6 +14,8 @@ trait HasOwner {
     protected static function booted()
     {
         static::addGlobalScope(new HasOwnerScope());
+
+        self::observe(HasOwnerObserver::class);
     }
 
     /**
@@ -22,7 +25,11 @@ trait HasOwner {
      */
     public function getOwnerForeignKey()
     {
-        return $this->ownerForeignKey;
+        if($this->ownerForeignKey) {
+            return $this->ownerForeignKey;
+        } else {
+            return config('has-owner.user_foreign_key');
+        }
     }
 
     /**
@@ -32,6 +39,10 @@ trait HasOwner {
      */
     public function getOwnerPrimaryKey()
     {
-        return $this->ownerPrimaryKey;
+        if($this->ownerPrimaryKey) {
+            return $this->ownerPrimaryKey;
+        } else {
+            return config('has-owner.user_primary_key');
+        }
     }
 }

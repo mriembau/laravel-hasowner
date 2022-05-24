@@ -21,17 +21,8 @@ class HasOwnerScope implements Scope
     {
         $user = Auth::user();
 
-        if($model->getOwnerPrimaryKey()) {
-            $userIdField = $model->getOwnerPrimaryKey();
-        } else {
-            $userIdField = config('has-owner.user_primary_key');
-        }
-
-        if($model->getOwnerForeignKey()) {
-            $foreignKey = $model->getOwnerForeignKey();
-        } else {
-            $foreignKey = config('has-owner.user_foreign_key');
-        }
+        $userIdField = $model->getOwnerPrimaryKey();
+        $foreignKey = $model->getOwnerForeignKey();
 
         $builder->where($foreignKey, $user->$userIdField);
     }
