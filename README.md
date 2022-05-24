@@ -123,6 +123,9 @@ social network where a user allow his friends to see his posts).
 
 ## Changelog
 
+### 1.1.0
+- Add foreign_key on create if it is not set
+
 #### 1.0.1
 - Tests added
 - Improved README
