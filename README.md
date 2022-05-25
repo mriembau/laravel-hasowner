@@ -1,6 +1,7 @@
 # Laravel Has Owner
 
 [![Latest Version](https://img.shields.io/github/v/release/mriembau/laravel-hasowner.svg?style=flat-square)](https://github.com/mriembau/laravel-hasowner/releases)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mriembau/laravel-hasowner/run-tests?label=tests)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/mriembau/laravel-hasowner.svg?style=flat-square)](https://packagist.org/packages/mriembau/laravel-hasowner)
 
@@ -122,6 +123,9 @@ You can ask me for more features in case you miss any, by now, I have some in mi
 social network where a user allow his friends to see his posts).
 
 ## Changelog
+
+#### 1.1.1
+- Add github actions configuration to run tests on push
 
 ### 1.1.0
 - Add foreign_key on create if it is not set
